@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 85 81 216;
+  }
+
+  body {
+    @apply bg-[#faf8f5] text-stone-900 antialiased font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Prevent browser ugly cyan/blue autofill background */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus,
+  select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #1c1917 !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  /* Custom subtle warm scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-stone-300/80 rounded-full hover:bg-stone-400 transition-colors;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-brand-600 rounded-xl hover:bg-brand-700 active:scale-[0.99] transition-all shadow-sm shadow-brand-600/25 hover:shadow-md hover:shadow-brand-600/30 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-stone-700 bg-white border border-stone-200/90 rounded-xl hover:bg-stone-50 hover:border-stone-300 active:scale-[0.99] transition-all shadow-[0_1px_2px_rgba(0,0,0,0.04)] focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-rose-600 rounded-xl hover:bg-rose-700 active:scale-[0.99] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .card {
+    @apply bg-white border border-stone-200/80 rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.03),0_8px_24px_-4px_rgba(28,25,23,0.04)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_12px_28px_-4px_rgba(28,25,23,0.07)] transition-all;
+  }
+
+  .input-field {
+    @apply w-full px-3.5 py-2.5 text-sm bg-white text-stone-900 border border-stone-200/90 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.03)] placeholder:text-stone-400 hover:border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-600 transition-all;
+  }
+}
